@@ -22,11 +22,6 @@ public class UserServiceImpl implements UserService {
     UmsMemberReceiveAddressMapper umsMemberReceiveAddressMapper;
 
 
-    @Override
-    public List<UmsMember> getAllUser() {
-        List<UmsMember> umsMember= umsMapper.selectAll();
-        return umsMember;
-    }
 
     @Override
     public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String memberId) {

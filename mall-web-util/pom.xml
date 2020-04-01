@@ -17,8 +17,9 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <groupId>com.lsz.mall</groupId>
+            <artifactId>mall-common-util</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
 

@@ -6,6 +6,6 @@ import java.util.List;
 
 @Mapper
 public interface UmsMapper extends tk.mybatis.mapper.common.Mapper<UmsMember> {
-    public List<UmsMember> selectAllUser();
+
 
 }
