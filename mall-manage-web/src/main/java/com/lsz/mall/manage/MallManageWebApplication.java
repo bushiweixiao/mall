@@ -1,8 +1,7 @@
-package com.lszz.mall.manage;
+package com.lsz.mall.manage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
 public class MallManageWebApplication {

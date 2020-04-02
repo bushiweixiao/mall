@@ -1,7 +1,5 @@
 package com.lsz.mall.bean;
 
-import com.lsz.mall.bean.PmsBaseCataLog3;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -21,13 +19,13 @@ public class PmsBaseCatalog2 implements Serializable {
     private String catalog1Id;
 
     @Transient
-    private List<PmsBaseCataLog3> catalog3List;
+    private List<PmsBaseCatalog3> catalog3List;
 
-    public List<PmsBaseCataLog3> getCatalog3List() {
+    public List<PmsBaseCatalog3> getCatalog3List() {
         return catalog3List;
     }
 
-    public void setCatalog3List(List<PmsBaseCataLog3> catalog3List) {
+    public void setCatalog3List(List<PmsBaseCatalog3> catalog3List) {
         this.catalog3List = catalog3List;
     }
 

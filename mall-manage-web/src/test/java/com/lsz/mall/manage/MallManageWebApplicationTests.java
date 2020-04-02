@@ -1,4 +1,4 @@
-package com.lszz.mall.manage;
+package com.lsz.mall.manage;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

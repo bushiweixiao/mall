@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="mall@localhost" uuid="3ff17b4e-0f93-44ce-b20a-e50ce81a6e3b">
+    <data-source source="LOCAL" name="mall@cdb-jdeeawkk.cd.tencentcdb.com" uuid="7ab3bffe-720f-48f2-918f-0baa67c368f2">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/mall</jdbc-url>
+      <jdbc-url>jdbc:mysql://cdb-jdeeawkk.cd.tencentcdb.com:10138/mall</jdbc-url>
     </data-source>
   </component>
 </project>

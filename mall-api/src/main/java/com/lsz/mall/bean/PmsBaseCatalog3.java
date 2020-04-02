@@ -3,7 +3,7 @@ package com.lsz.mall.bean;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-public class PmsBaseCataLog3 implements Serializable {
+public class PmsBaseCatalog3 implements Serializable {
     @Id
     private String id;
     private String name;
