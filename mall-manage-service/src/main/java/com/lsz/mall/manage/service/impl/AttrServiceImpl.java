@@ -8,7 +8,6 @@ import com.lsz.mall.manage.mapper.PmsBaseAttrValueMapper;
 import com.lsz.mall.service.AttrService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
