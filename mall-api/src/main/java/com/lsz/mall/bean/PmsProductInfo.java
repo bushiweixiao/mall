@@ -1,6 +1,7 @@
 package com.lsz.mall.bean;
 
-
+import com.lsz.mall.bean.PmsProductImage;
+import com.lsz.mall.bean.PmsProductSaleAttr;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -28,35 +29,9 @@ public class PmsProductInfo implements Serializable {
     private  String catalog3Id;
 
     @Transient
-    private List<PmsProductSaleAttr> pmsProductSaleAttrList;
+    private List<PmsProductSaleAttr> spuSaleAttrList;
     @Transient
-    private List<PmsProductImage> pmsProductImageList;
-
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public List<PmsProductSaleAttr> getPmsProductSaleAttrList() {
-        return pmsProductSaleAttrList;
-    }
-
-    public void setPmsProductSaleAttrList(List<PmsProductSaleAttr> pmsProductSaleAttrList) {
-        this.pmsProductSaleAttrList = pmsProductSaleAttrList;
-    }
-
-    public List<PmsProductImage> getPmsProductImageList() {
-        return pmsProductImageList;
-    }
-
-    public void setPmsProductImageList(List<PmsProductImage> pmsProductImageList) {
-        this.pmsProductImageList = pmsProductImageList;
-    }
-
+    private List<PmsProductImage> spuImageList;
 
     public String getId() {
         return id;
@@ -66,6 +41,13 @@ public class PmsProductInfo implements Serializable {
         this.id = id;
     }
 
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
 
     public String getDescription() {
         return description;
@@ -83,6 +65,21 @@ public class PmsProductInfo implements Serializable {
         this.catalog3Id = catalog3Id;
     }
 
+    public List<PmsProductSaleAttr> getSpuSaleAttrList() {
+        return spuSaleAttrList;
+    }
+
+    public void setSpuSaleAttrList(List<PmsProductSaleAttr> spuSaleAttrList) {
+        this.spuSaleAttrList = spuSaleAttrList;
+    }
+
+    public List<PmsProductImage> getSpuImageList() {
+        return spuImageList;
+    }
+
+    public void setSpuImageList(List<PmsProductImage> spuImageList) {
+        this.spuImageList = spuImageList;
+    }
 }
 
 

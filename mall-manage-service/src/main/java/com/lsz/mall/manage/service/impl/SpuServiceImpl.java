@@ -1,8 +1,11 @@
 package com.lsz.mall.manage.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.lsz.mall.bean.PmsProductInfo;
+import com.lsz.mall.bean.*;
+import com.lsz.mall.manage.mapper.PmsProductImageMapper;
 import com.lsz.mall.manage.mapper.PmsProductInfoMapper;
+import com.lsz.mall.manage.mapper.PmsProductSaleAttrMapper;
+import com.lsz.mall.manage.mapper.PmsProductSaleAttrValueMapper;
 import com.lsz.mall.service.SpuService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,10 +16,48 @@ import java.util.List;
 public class SpuServiceImpl implements SpuService {
     @Autowired
     PmsProductInfoMapper pmsProductInfoMapper;
+    @Autowired
+    PmsProductImageMapper pmsProductImageMapper;
+    @Autowired
+    PmsProductSaleAttrMapper pmsProductSaleAttrMapper;
+    @Autowired
+    PmsProductSaleAttrValueMapper pmsProductSaleAttrValueMapper;
     @Override
     public List<PmsProductInfo> spuList(String catalog3Id) {
         PmsProductInfo pmsProductInfo=new PmsProductInfo();
         pmsProductInfo.setCatalog3Id(catalog3Id);
         return pmsProductInfoMapper.select(pmsProductInfo);
+    }
+
+    @Override
+    public String saveSpuInfo(PmsProductInfo pmsProductInfo) {
+        //保存SpuInfo
+        pmsProductInfoMapper.insertSelective(pmsProductInfo);
+        String spuId = pmsProductInfo.getId();
+        //保存SPU图片信息
+        List<PmsProductImage> spuImageList = pmsProductInfo.getSpuImageList();
+        for (PmsProductImage pmsProductImage :
+                spuImageList) {
+            pmsProductImage.setProductId(spuId);
+            pmsProductImageMapper.insert(pmsProductImage);
+        }
+        //保存SPU销售属性
+        PmsProductSaleAttr spuSaleAttr = new PmsProductSaleAttr();
+        List<PmsProductSaleAttr> spuSaleAttrList = pmsProductInfo.getSpuSaleAttrList();
+        for (PmsProductSaleAttr saleAttr :
+                spuSaleAttrList) {
+            saleAttr.setProductId(spuId);
+
+            pmsProductSaleAttrMapper.insertSelective(saleAttr);
+            //保存SPU销售属性值
+            List<PmsProductSaleAttrValue> spuSaleAttrValueList = saleAttr.getSpuSaleAttrValueList();
+            for (PmsProductSaleAttrValue attrValue :
+                    spuSaleAttrValueList) {
+                attrValue.setProductId(spuId);
+                attrValue.setSaleAttrId( saleAttr.getId());
+                pmsProductSaleAttrValueMapper.insert(attrValue);
+            }
+        }
+        return "success";
     }
 }

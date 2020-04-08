@@ -3,8 +3,10 @@ package com.lsz.mall.manage.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.lsz.mall.bean.PmsBaseAttrInfo;
 import com.lsz.mall.bean.PmsBaseAttrValue;
+import com.lsz.mall.bean.PmsBaseSaleAttr;
 import com.lsz.mall.manage.mapper.PmsBaseAttrInfoMapper;
 import com.lsz.mall.manage.mapper.PmsBaseAttrValueMapper;
+import com.lsz.mall.manage.mapper.PmsBaseSaleAttrMapper;
 import com.lsz.mall.service.AttrService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ public class AttrServiceImpl implements AttrService {
     PmsBaseAttrInfoMapper pmsBaseAttrInfoMapper;
     @Autowired
     PmsBaseAttrValueMapper pmsBaseAttrValueMapper;
+    @Autowired
+    PmsBaseSaleAttrMapper pmsBaseSaleAttrMapper;
     @Override
     public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id) {
         PmsBaseAttrInfo pmsBaseAttrInfo=new PmsBaseAttrInfo();
@@ -63,5 +67,10 @@ public class AttrServiceImpl implements AttrService {
         PmsBaseAttrValue pmsBaseAttrValue=new PmsBaseAttrValue();
         pmsBaseAttrValue.setAttrId(attrId);
        return pmsBaseAttrValueMapper.select(pmsBaseAttrValue);
+    }
+
+    @Override
+    public List<PmsBaseSaleAttr> baseSaleAttrList() {
+        return pmsBaseSaleAttrMapper.selectAll();
     }
 }

@@ -1,5 +1,7 @@
 package com.lsz.mall.bean;
 
+import com.lsz.mall.bean.PmsBaseAttrValue;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
