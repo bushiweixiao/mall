@@ -33,11 +33,6 @@ public class SpuController {
         return spuService.spuList(catalog3Id);
     }
 
-//    @ResponseBody
-//    @RequestMapping("saveSpuInfo")
-//    public void saveSpuInfo(@RequestBody PmsProductInfo pmsProductInfo){
-//        String status=spuService.saveSpuInfo(pmsProductInfo);
-//    }
 
     //由编辑SPU页的保存按钮所调用，保存SPU页面信息
     @RequestMapping("saveSpuInfo")
