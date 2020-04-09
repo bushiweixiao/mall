@@ -17,6 +17,19 @@ public class SpuController {
     @Reference
     SpuService spuService;
 
+    @ResponseBody
+    @RequestMapping("spuImageList")
+    public List<PmsProductImage> spuImageList(String spuId) {
+        return spuService.spuImageList(spuId);
+    }
+
+
+    @ResponseBody
+    @RequestMapping("spuSaleAttrList")
+    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId) {
+        return spuService.spuSaleAttrList(spuId);
+    }
+
     //上传图片至fastdfs并返回url
     @ResponseBody
     @RequestMapping("fileUpload")
@@ -25,11 +38,9 @@ public class SpuController {
     }
 
 
-
-
     @ResponseBody
     @RequestMapping("spuList")
-    public List<PmsProductInfo> spuList(String catalog3Id){
+    public List<PmsProductInfo> spuList(String catalog3Id) {
         return spuService.spuList(catalog3Id);
     }
 
@@ -41,5 +52,6 @@ public class SpuController {
         spuService.saveSpuInfo(pmsProductInfo);
         return "success";
     }
+
 
 }

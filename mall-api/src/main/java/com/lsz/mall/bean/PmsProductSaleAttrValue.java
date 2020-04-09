@@ -19,8 +19,8 @@ public class PmsProductSaleAttrValue implements Serializable {
     @Column
     String saleAttrValueName;
 
-    @Transient
-    String isChecked;
+//    @Transient
+//    String isChecked;
 
     public String getId() {
         return id;
@@ -54,11 +54,5 @@ public class PmsProductSaleAttrValue implements Serializable {
         this.saleAttrValueName = saleAttrValueName;
     }
 
-    public String getIsChecked() {
-        return isChecked;
-    }
 
-    public void setIsChecked(String isChecked) {
-        this.isChecked = isChecked;
-    }
 }

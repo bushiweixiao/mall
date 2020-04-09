@@ -11,6 +11,7 @@ import com.lsz.mall.service.AttrService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,11 +22,21 @@ public class AttrServiceImpl implements AttrService {
     PmsBaseAttrValueMapper pmsBaseAttrValueMapper;
     @Autowired
     PmsBaseSaleAttrMapper pmsBaseSaleAttrMapper;
+
     @Override
     public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id) {
-        PmsBaseAttrInfo pmsBaseAttrInfo=new PmsBaseAttrInfo();
-        pmsBaseAttrInfo.setCatalog3Id(catalog3Id);
-        return  pmsBaseAttrInfoMapper.select(pmsBaseAttrInfo);
+        PmsBaseAttrInfo pmsBaseAttrInfo1=new PmsBaseAttrInfo();
+        pmsBaseAttrInfo1.setCatalog3Id(catalog3Id);
+        List<PmsBaseAttrInfo> pmsBaseAttrInfos=pmsBaseAttrInfoMapper.select(pmsBaseAttrInfo1);
+        for (PmsBaseAttrInfo pmsBaseAttrInfo : pmsBaseAttrInfos) {
+            List<PmsBaseAttrValue> pmsBaseAttrValues=new ArrayList<>();
+            PmsBaseAttrValue pmsBaseAttrValue=new PmsBaseAttrValue();
+            String id=pmsBaseAttrInfo.getId();
+            pmsBaseAttrValue.setAttrId(id);
+            pmsBaseAttrValues=pmsBaseAttrValueMapper.select(pmsBaseAttrValue);
+            pmsBaseAttrInfo.setAttrValueList(pmsBaseAttrValues);
+        }
+        return pmsBaseAttrInfos;
     }
 
     @Override
